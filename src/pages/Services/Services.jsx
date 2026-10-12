@@ -1,429 +1,704 @@
-
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
-  Activity,
   ArrowRight,
-  ArrowUpRight,
-  Bone,
-  Brain,
   CheckCircle2,
+  Activity,
   HeartPulse,
-  PersonStanding,
+  Dumbbell,
+  Bone,
+  Accessibility,
+  Brain,
   ShieldCheck,
-  Sparkles,
-  Stethoscope,
-  Video,
-  Waves,
-  ClipboardCheck
+  UserRoundCheck,
+  CalendarCheck,
+  ClipboardCheck,
+  ChevronDown,
+  MoveRight,
 } from "lucide-react";
 
+import HeroSection from "../../components/HeroSection/HeroSection";
+import SectionHeading from "../../components/SectionHeading/SectionHeading";
 import CTASection from "../../components/CTASection/CTASection";
+
 import "./Services.css";
 
 const services = [
   {
     number: "01",
     icon: Activity,
-    title: "Orthopaedic Physiotherapy",
-    category: "PAIN AND MOBILITY",
+    title: "Back and Neck Pain",
+    category: "PAIN MANAGEMENT",
     description:
-      "Support for joint pain, muscle stiffness, movement limitations, and recovery after orthopaedic injuries.",
-    image:
-      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=900&q=85",
-    points: [
-      "Joint and muscle mobility",
-      "Strength and flexibility",
-      "Functional movement",
+      "Personalised physiotherapy to help manage back pain, neck stiffness, posture related discomfort and movement limitations.",
+    benefits: [
+      "Improve flexibility and mobility",
+      "Build strength and stability",
+      "Learn better movement habits",
     ],
+    image:
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=85",
+    alt: "Physiotherapist guiding a patient through treatment",
   },
   {
     number: "02",
-    icon: PersonStanding,
-    title: "Sports Rehabilitation",
-    category: "PERFORMANCE AND RECOVERY",
+    icon: Dumbbell,
+    title: "Sports Injury Rehabilitation",
+    category: "ACTIVE RECOVERY",
     description:
-      "Structured rehabilitation to help active individuals work towards a safe and confident return to sport.",
-    image:
-      "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=85",
-    points: [
-      "Injury recovery support",
-      "Strength and conditioning",
-      "Return to activity planning",
+      "Structured rehabilitation designed to support recovery from sports injuries and help you return to physical activities safely.",
+    benefits: [
+      "Restore strength and control",
+      "Improve balance and coordination",
+      "Build confidence during recovery",
     ],
+    image:
+      "https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=1000&q=85",
+    alt: "Athlete performing a fitness exercise",
   },
   {
     number: "03",
     icon: Bone,
-    title: "Post Surgical Rehabilitation",
-    category: "RECOVERY AND STRENGTH",
+    title: "Joint and Mobility Care",
+    category: "BETTER MOVEMENT",
     description:
-      "Guided exercises and movement support designed around your procedure, recovery stage, and clinician's advice.",
-    image:
-      "https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=900&q=85",
-    points: [
-      "Mobility restoration",
-      "Progressive exercises",
-      "Functional recovery goals",
+      "Support for joint stiffness, reduced flexibility and everyday movement difficulties through guided exercises and individual care.",
+    benefits: [
+      "Improve joint movement",
+      "Develop everyday strength",
+      "Support comfortable movement",
     ],
+    image:
+      "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1000&q=85",
+    alt: "Person performing a guided mobility exercise",
   },
   {
     number: "04",
-    icon: Brain,
-    title: "Neurological Physiotherapy",
-    category: "MOVEMENT AND COORDINATION",
+    icon: HeartPulse,
+    title: "Post Surgical Rehabilitation",
+    category: "RECOVERY SUPPORT",
     description:
-      "Individualised movement support for people experiencing changes in balance, coordination, or mobility.",
-    image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=85",
-    points: [
-      "Balance and coordination",
-      "Movement practice",
-      "Everyday activity support",
+      "A progressive rehabilitation plan designed around your procedure, recovery stage and the guidance of your treating clinician.",
+    benefits: [
+      "Follow a structured recovery plan",
+      "Gradually rebuild strength",
+      "Work towards daily activities",
     ],
+    image:
+      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1000&q=85",
+    alt: "Patient working on a supervised rehabilitation exercise",
   },
   {
     number: "05",
-    icon: Waves,
-    title: "Chronic Pain Management",
-    category: "COMFORT AND FUNCTION",
+    icon: Accessibility,
+    title: "Geriatric Physiotherapy",
+    category: "HEALTHY AGEING",
     description:
-      "A guided approach combining movement education and appropriate exercises to help manage persistent pain.",
-    image:
-      "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=85",
-    points: [
-      "Movement education",
-      "Activity pacing",
-      "Personalised exercise guidance",
+      "Individualised care for older adults to support balance, mobility, strength and greater confidence with everyday activities.",
+    benefits: [
+      "Practice balance and stability",
+      "Maintain functional strength",
+      "Support independent movement",
     ],
+    image:
+      "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1000&q=85",
+    alt: "Person practising a gentle guided movement exercise",
   },
   {
     number: "06",
-    icon: HeartPulse,
-    title: "Posture and Mobility Care",
-    category: "DAILY MOVEMENT",
+    icon: Brain,
+    title: "Neurological Rehabilitation",
+    category: "FUNCTIONAL RECOVERY",
     description:
-      "Practical guidance to improve movement habits, flexibility, body awareness, and everyday physical function.",
-    image:
-      "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=900&q=85",
-    points: [
-      "Posture awareness",
-      "Flexibility and mobility",
-      "Movement habit guidance",
+      "Guided rehabilitation focused on movement, coordination, balance and functional goals for people with neurological conditions.",
+    benefits: [
+      "Practise functional movements",
+      "Work on balance and coordination",
+      "Build a personalised exercise routine",
     ],
+    image:
+      "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=1000&q=85",
+    alt: "Healthcare professional assisting with a recovery session",
   },
 ];
 
-const steps = [
+const careSteps = [
   {
     number: "01",
-    title: "Understand your needs",
+    icon: ClipboardCheck,
+    title: "Understand Your Needs",
     description:
-      "Share your concerns, movement goals, and relevant health history.",
+      "Discuss your concerns, health history, movement difficulties and personal recovery goals.",
   },
   {
     number: "02",
-    title: "Build your plan",
+    icon: UserRoundCheck,
+    title: "Personalised Assessment",
     description:
-      "Work with a qualified professional to determine suitable next steps.",
+      "Your physiotherapist evaluates relevant movement, strength and functional abilities.",
   },
   {
     number: "03",
-    title: "Move forward",
+    icon: Activity,
+    title: "Your Care Plan",
     description:
-      "Follow your recommended programme and review your progress regularly.",
+      "Receive a structured plan with suitable exercises, guidance and realistic milestones.",
+  },
+  {
+    number: "04",
+    icon: CalendarCheck,
+    title: "Review Your Progress",
+    description:
+      "Review progress with your physiotherapist and adjust your plan when needed.",
   },
 ];
 
+const approachFeatures = [
+  {
+    icon: UserRoundCheck,
+    title: "Individual Attention",
+    description:
+      "Care recommendations are shaped around your needs, abilities and goals.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Guided Recovery",
+    description:
+      "Understand each exercise and how it supports your rehabilitation plan.",
+  },
+  {
+    icon: Activity,
+    title: "Movement Focus",
+    description:
+      "Work towards improving strength, mobility and everyday function.",
+  },
+  {
+    icon: HeartPulse,
+    title: "Progress Reviews",
+    description:
+      "Review your progress and discuss the next steps with your physiotherapist.",
+  },
+];
+
+const faqs = [
+  {
+    question: "How do I choose the right physiotherapy service?",
+    answer:
+      "Start by discussing your symptoms, medical history and goals with a qualified physiotherapist. They can assess your needs and recommend an appropriate care plan.",
+  },
+  {
+    question: "Do I need an appointment before visiting?",
+    answer:
+      "Booking an appointment is recommended so the team can understand your needs and plan your consultation. Contact Rehabics to discuss available appointment options.",
+  },
+  {
+    question: "How many sessions will I need?",
+    answer:
+      "The number of sessions depends on your condition, goals, progress and clinical assessment. Your physiotherapist can discuss a suitable plan with you.",
+  },
+  {
+    question: "Can physiotherapy help with long term pain?",
+    answer:
+      "Physiotherapy may help improve movement, strength and daily function for some persistent pain conditions. The appropriate approach depends on your individual assessment.",
+  },
+  {
+    question: "Can I exercise between sessions?",
+    answer:
+      "Your physiotherapist may recommend suitable home exercises based on your assessment. Follow their guidance and discuss any new or worsening symptoms before continuing.",
+  },
+  {
+    question: "What should I bring to my first appointment?",
+    answer:
+      "Bring relevant medical reports, prescriptions or scan results if available, along with a list of medicines and details about your symptoms.",
+  },
+];
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: {
+    opacity: 0,
+    y: 22,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.55,
+      ease: "easeOut",
+    },
+  },
+};
+
+function ServiceCard({ service, index }) {
+  const Icon = service.icon;
+
+  return (
+    <motion.article
+      className="services-card"
+      variants={itemVariants}
+      whileHover={{ y: -6 }}
+      transition={{ duration: 0.25 }}
+    >
+      <div className="services-card-image">
+        <img
+          src={service.image}
+          alt={service.alt}
+          loading="lazy"
+        />
+
+        <span className="services-card-number">
+          {service.number}
+        </span>
+
+        <span className="services-card-category">
+          {service.category}
+        </span>
+      </div>
+
+      <div className="services-card-content">
+        <div className="services-card-icon">
+          <Icon size={23} strokeWidth={1.8} />
+        </div>
+
+        <h3>{service.title}</h3>
+
+        <p className="services-card-description">
+          {service.description}
+        </p>
+
+        <div className="services-card-benefits">
+          {service.benefits.map((benefit) => (
+            <div className="services-benefit" key={benefit}>
+              <CheckCircle2 size={16} />
+              <span>{benefit}</span>
+            </div>
+          ))}
+        </div>
+
+        <Link
+          to="/appointment"
+          className="services-card-link"
+          aria-label={`Book an appointment for ${service.title}`}
+        >
+          Discuss Your Needs
+          <ArrowRight size={17} />
+        </Link>
+      </div>
+    </motion.article>
+  );
+}
+
 function Services() {
+  const [activeFaq, setActiveFaq] = useState(0);
+
   return (
     <main className="services-page">
-      <section className="services-hero">
-        <div className="services-container services-hero-grid">
+      {/* Hero Section */}
+
+      <HeroSection
+        eyebrow="OUR PHYSIOTHERAPY SERVICES"
+        title="Care That Helps You"
+        highlight="Move Better"
+        description="Explore personalised physiotherapy services designed to support pain management, improve mobility and help you work towards a more active life."
+        primaryText="Book Your Appointment"
+        primaryLink="/appointment"
+        secondaryText="Explore Our Services"
+        secondaryLink="#all-services"
+        image="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=85"
+        imageAlt="Physiotherapist supporting a patient during rehabilitation"
+        imageLabel="PERSONALISED PHYSIOTHERAPY"
+        imageDescription="Professional guidance shaped around your recovery goals"
+        showStats={false}
+        showImage={true}
+      />
+
+      {/* Introduction */}
+
+      <section className="services-introduction">
+        <div className="services-container">
           <motion.div
-            className="services-hero-content"
-            initial={{ opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            className="services-intro-copy"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={containerVariants}
           >
-            <span className="services-eyebrow">
-              <span className="services-eyebrow-dot" />
-              OUR PHYSIOTHERAPY SERVICES
-            </span>
+            <motion.span
+              className="services-eyebrow"
+              variants={itemVariants}
+            >
+              CARE THAT STARTS WITH YOU
+            </motion.span>
 
-            <h1>
-              Care that helps you
-              <span> move forward.</span>
-            </h1>
+            <motion.h2 variants={itemVariants}>
+              Every recovery journey deserves{" "}
+              <span>the right support.</span>
+            </motion.h2>
 
-            <p>
-              Explore personalised physiotherapy support designed around your
-              movement, recovery goals, and everyday life.
-            </p>
+            <motion.p variants={itemVariants}>
+              Pain, stiffness or limited movement can affect the
+              activities that matter to you. Our approach starts
+              with understanding your concerns and identifying
+              suitable steps towards better movement.
+            </motion.p>
 
-            <div className="services-hero-actions">
-              <Link to="/contact" className="services-primary-button">
-                Book a Consultation
-                <ArrowUpRight size={18} />
-              </Link>
-
-              <a href="#service-list" className="services-secondary-link">
-                Explore Services
-                <ArrowRight size={17} />
-              </a>
-            </div>
-
-            <div className="services-hero-points">
+            <motion.div
+              className="services-intro-note"
+              variants={itemVariants}
+            >
+              <CheckCircle2 size={19} />
               <span>
-                <CheckCircle2 size={17} />
-                Personalised guidance
+                Individual care guided by assessment and your goals
               </span>
-              <span>
-                <CheckCircle2 size={17} />
-                Goal focused care
-              </span>
-            </div>
+            </motion.div>
           </motion.div>
 
           <motion.div
-            className="services-hero-image"
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.12 }}
+            className="services-intro-panel"
+            initial={{ opacity: 0, x: 25 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.65 }}
           >
-            <img
-              src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=1100&q=85"
-              alt="Healthcare professional supporting patient wellbeing"
-            />
-
-            <div className="services-hero-image-shade" />
-
-            <div className="services-hero-image-card">
-              <span className="services-hero-icon">
-                <HeartPulse size={23} />
-              </span>
-              <div>
-                <strong>Your recovery, your goals</strong>
-                <p>Guidance shaped around your needs</p>
-              </div>
+            <div className="services-intro-panel-icon">
+              <HeartPulse size={27} />
             </div>
 
-            <div className="services-image-tag">
-              <Sparkles size={16} />
-              Care made personal
-            </div>
+            <span className="services-panel-label">
+              OUR CARE PHILOSOPHY
+            </span>
+
+            <h3>
+              Understand your body. Work towards better movement.
+            </h3>
+
+            <p>
+              We focus on clear guidance, appropriate exercises
+              and meaningful progress throughout your care journey.
+            </p>
+
+            <Link to="/about" className="services-text-link">
+              Discover Rehabics
+              <ArrowRight size={17} />
+            </Link>
           </motion.div>
         </div>
       </section>
 
-      <section className="services-intro">
-        <div className="services-container services-intro-grid">
-          <div>
-            <span className="services-eyebrow">HOW WE CAN HELP</span>
-            <h2>
-              The right support for
-              <span> your movement goals.</span>
-            </h2>
-          </div>
+      {/* All Services */}
 
-          <p>
-            Every person's needs are different. Explore our areas of
-            physiotherapy support and speak with a qualified professional to
-            understand which approach may be suitable for you.
+      <section
+        className="services-list-section"
+        id="all-services"
+      >
+        <div className="services-container">
+          <SectionHeading
+            eyebrow="HOW WE CAN HELP"
+            title="Physiotherapy for"
+            highlight="Your Needs"
+            description="Explore our care areas and find out how physiotherapy may support your movement and recovery goals."
+            align="center"
+            size="large"
+          />
+
+          <motion.div
+            className="services-grid"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.08 }}
+          >
+            {services.map((service, index) => (
+              <ServiceCard
+                service={service}
+                index={index}
+                key={service.number}
+              />
+            ))}
+          </motion.div>
+
+          <p className="services-grid-note">
+            Your suitability for treatment will be discussed
+            during an individual assessment.
           </p>
         </div>
       </section>
 
-      <section className="services-list-section" id="service-list">
+      {/* Our Approach */}
+
+      <section className="services-approach-section">
+        <div className="services-container services-approach-layout">
+          <motion.div
+            className="services-approach-visual"
+            initial={{ opacity: 0, x: -25 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6 }}
+          >
+            <img
+              src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1100&q=85"
+              alt="Guided movement practice in a physiotherapy setting"
+              loading="lazy"
+            />
+
+            <div className="services-visual-caption">
+              <span className="services-caption-icon">
+                <Activity size={21} />
+              </span>
+
+              <div>
+                <strong>Movement With Purpose</strong>
+                <p>Care built around your individual goals</p>
+              </div>
+            </div>
+          </motion.div>
+
+          <div className="services-approach-copy">
+            <SectionHeading
+              eyebrow="THE REHABICS APPROACH"
+              title="Care that looks beyond"
+              highlight="the symptoms"
+              description="Physiotherapy is about more than a single exercise. It is about understanding your needs and working towards the activities you want to enjoy."
+              align="left"
+              size="large"
+            />
+
+            <div className="services-approach-features">
+              {approachFeatures.map((feature, index) => {
+                const Icon = feature.icon;
+
+                return (
+                  <motion.div
+                    className="services-approach-feature"
+                    key={feature.title}
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 0.45,
+                      delay: index * 0.08,
+                    }}
+                  >
+                    <div className="services-feature-icon">
+                      <Icon size={20} />
+                    </div>
+
+                    <div>
+                      <h3>{feature.title}</h3>
+                      <p>{feature.description}</p>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Care Journey */}
+
+      <section className="services-journey-section">
         <div className="services-container">
-          <div className="services-grid">
-            {services.map((service, index) => {
-              const Icon = service.icon;
+          <SectionHeading
+            eyebrow="YOUR CARE JOURNEY"
+            title="A clearer path to"
+            highlight="better movement"
+            description="Understand the steps that may form part of your physiotherapy journey."
+            align="center"
+            size="large"
+          />
+
+          <motion.div
+            className="services-journey-grid"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+          >
+            {careSteps.map((step) => {
+              const Icon = step.icon;
 
               return (
                 <motion.article
-                  className="service-card"
-                  key={service.number}
-                  initial={{ opacity: 0, y: 22 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.12 }}
-                  transition={{
-                    duration: 0.45,
-                    delay: (index % 3) * 0.08,
-                  }}
+                  className="services-journey-card"
+                  variants={itemVariants}
+                  key={step.number}
                 >
-                  <div className="service-card-image">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      loading="lazy"
-                    />
+                  <div className="services-journey-top">
+                    <span>{step.number}</span>
 
-                    <span className="service-card-number">
-                      {service.number}
-                    </span>
-
-                    <span className="service-card-icon">
+                    <div className="services-journey-icon">
                       <Icon size={22} />
-                    </span>
+                    </div>
                   </div>
 
-                  <div className="service-card-content">
-                    <span className="service-card-category">
-                      {service.category}
-                    </span>
-
-                    <h3>{service.title}</h3>
-                    <p>{service.description}</p>
-
-                    <ul className="service-card-points">
-                      {service.points.map((point) => (
-                        <li key={point}>
-                          <CheckCircle2 size={15} />
-                          <span>{point}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <Link
-                      to="/contact"
-                      className="service-card-link"
-                      aria-label={`Enquire about ${service.title}`}
-                    >
-                      Enquire About This Service
-                      <ArrowUpRight size={17} />
-                    </Link>
-                  </div>
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
                 </motion.article>
+              );
+            })}
+          </motion.div>
+
+          <div className="services-journey-action">
+            <Link
+              to="/appointment"
+              className="services-primary-button"
+            >
+              Start Your Journey
+              <ArrowRight size={17} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* First Appointment */}
+
+      <section className="services-appointment-section">
+        <div className="services-container">
+          <div className="services-appointment-box">
+            <div className="services-appointment-content">
+              <span className="services-eyebrow">
+                YOUR FIRST VISIT
+              </span>
+
+              <h2>
+                Start with a conversation about your goals.
+              </h2>
+
+              <p>
+                Tell us what you are experiencing, what activities
+                are difficult and what you hope to achieve. Your
+                physiotherapist can help you understand suitable
+                next steps.
+              </p>
+
+              <Link
+                to="/appointment"
+                className="services-primary-button"
+              >
+                Book Your Appointment
+                <ArrowRight size={17} />
+              </Link>
+            </div>
+
+            <div className="services-appointment-checklist">
+              <h3>Helpful things to bring</h3>
+
+              {[
+                "Relevant medical reports",
+                "Current prescriptions if available",
+                "Details about your symptoms",
+                "Questions about your recovery goals",
+              ].map((item) => (
+                <div
+                  className="services-checklist-item"
+                  key={item}
+                >
+                  <CheckCircle2 size={18} />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQs */}
+
+      <section className="services-faq-section">
+        <div className="services-container services-faq-layout">
+          <div className="services-faq-intro">
+            <SectionHeading
+              eyebrow="COMMON QUESTIONS"
+              title="Things you may"
+              highlight="want to know"
+              description="Learn more about choosing a service, preparing for your visit and understanding your care plan."
+              align="left"
+              size="large"
+            />
+
+            <Link
+              to="/contact"
+              className="services-text-link"
+            >
+              Have another question?
+              <ArrowRight size={17} />
+            </Link>
+          </div>
+
+          <div className="services-faq-list">
+            {faqs.map((faq, index) => {
+              const isOpen = activeFaq === index;
+
+              return (
+                <div
+                  className={`services-faq-item ${
+                    isOpen ? "is-open" : ""
+                  }`}
+                  key={faq.question}
+                >
+                  <button
+                    className="services-faq-question"
+                    type="button"
+                    aria-expanded={isOpen}
+                    onClick={() =>
+                      setActiveFaq(isOpen ? -1 : index)
+                    }
+                  >
+                    <span>{faq.question}</span>
+
+                    <ChevronDown
+                      size={20}
+                      className="services-faq-chevron"
+                    />
+                  </button>
+
+                  {isOpen && (
+                    <div className="services-faq-answer">
+                      <p>{faq.answer}</p>
+                    </div>
+                  )}
+                </div>
               );
             })}
           </div>
         </div>
       </section>
 
-      <section className="services-online-section">
-        <div className="services-container services-online-grid">
-          <div className="services-online-visual">
-            <img
-              src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=85"
-              alt="Online communication for remote physiotherapy guidance"
-              loading="lazy"
-            />
+      {/* Medical Note */}
 
-            <div className="services-online-overlay">
-              <span>
-                <Video size={21} />
-              </span>
-              <div>
-                <strong>Guidance from home</strong>
-                <p>Where remote care is appropriate</p>
-              </div>
-            </div>
-          </div>
+      <section className="services-medical-note">
+        <div className="services-container services-medical-note-inner">
+          <ShieldCheck size={21} />
 
-          <motion.div
-            className="services-online-content"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.55 }}
-          >
-            <span className="services-eyebrow">ONLINE PHYSIOTHERAPY</span>
-
-            <h2>
-              Professional guidance,
-              <span> wherever you are.</span>
-            </h2>
-
-            <p>
-              Online consultations may help you access exercise guidance,
-              movement education, and follow up support without travelling to
-              a clinic, when your condition is suitable for remote care.
-            </p>
-
-            <div className="services-online-feature">
-              <span>
-                <Video size={19} />
-              </span>
-              <div>
-                <strong>Convenient consultations</strong>
-                <p>Discuss your concerns with a qualified professional.</p>
-              </div>
-            </div>
-
-            <div className="services-online-feature">
-              <span>
-                <ClipboardCheck size={19} />
-              </span>
-              <div>
-                <strong>Structured exercise guidance</strong>
-                <p>Understand your recommended exercises and next steps.</p>
-              </div>
-            </div>
-
-            <Link to="/contact" className="services-primary-button">
-              Ask About Online Care
-              <ArrowUpRight size={18} />
-            </Link>
-          </motion.div>
+          <p>
+            Treatment recommendations depend on your individual
+            assessment and medical history. Seek urgent medical
+            attention for severe or sudden symptoms.
+          </p>
         </div>
       </section>
 
-      <section className="services-process-section">
-        <div className="services-container">
-          <div className="services-process-heading">
-            <span className="services-eyebrow">A CLEARER WAY FORWARD</span>
-            <h2>
-              Your journey starts
-              <span> with a conversation.</span>
-            </h2>
-            <p>
-              A simple process helps you understand your options and take the
-              next step with confidence.
-            </p>
-          </div>
+      {/* Reusable CTA Section */}
 
-          <div className="services-process-grid">
-            {steps.map((step, index) => (
-              <motion.article
-                className="services-process-card"
-                key={step.number}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-              >
-                <span className="services-process-number">
-                  {step.number}
-                </span>
-                <h3>{step.title}</h3>
-                <p>{step.description}</p>
-              </motion.article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="services-note-section">
-        <div className="services-container">
-          <div className="services-note">
-            <span>
-              <ShieldCheck size={23} />
-            </span>
-            <div>
-              <h3>Your care should be right for you</h3>
-              <p>
-                The services listed are general areas of support, not a
-                diagnosis or a guarantee of results. A qualified professional
-                can help determine an appropriate treatment plan. Seek urgent
-                medical attention for serious or sudden symptoms.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <CTASection />
+      <CTASection
+        eyebrow="YOUR JOURNEY STARTS HERE"
+        title="Ready to Move Better and Live Better?"
+        description="Take the first step towards better movement and a healthier life. Our physiotherapy team is here to help you."
+        buttonText="Book Your Appointment"
+        buttonLink="/appointment"
+        secondaryText="Explore Our Services"
+        secondaryLink="#all-services"
+      />
     </main>
   );
 }

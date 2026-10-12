@@ -1,11 +1,16 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "./Navbar.css";
 
 const navLinks = [
   { name: "Home", path: "/" },
   { name: "Services", path: "/services" },
+  { name: "Conditions", path: "/conditions" },
+  { name: "Online Physio", path: "/online-physiotherapy" },
   { name: "About Us", path: "/about" },
+  { name: "Our Team", path: "/team" },
+  { name: "Resources", path: "/resources" },
+  { name: "Blog", path: "/blog" },
   { name: "Contact", path: "/contact" },
 ];
 
@@ -87,7 +92,7 @@ export default function Navbar() {
         <Link
           to="/"
           className="brand"
-          aria-label="PhysioCare home"
+          aria-label="Rehabics home"
           onClick={closeMenu}
         >
           <span className="brand-icon">
@@ -95,7 +100,7 @@ export default function Navbar() {
           </span>
 
           <span className="brand-copy">
-            <strong>PhysioCare</strong>
+            <strong>Rehabics</strong>
             <small>MOVE BETTER. LIVE BETTER.</small>
           </span>
         </Link>
@@ -103,17 +108,25 @@ export default function Navbar() {
         <div className="desktop-nav">
           <div className="nav-links">
             {navLinks.map((link) => (
-              <Link
+              <NavLink
                 key={link.path}
                 to={link.path}
-                className="nav-link"
+                end={link.path === "/"}
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? "active" : ""}`
+                }
+                onClick={closeMenu}
               >
                 {link.name}
-              </Link>
+              </NavLink>
             ))}
           </div>
 
-          <Link to="/appointment" className="nav-cta">
+          <Link
+            to="/appointment"
+            className="nav-cta"
+            onClick={closeMenu}
+          >
             Book Appointment
             <ArrowIcon />
           </Link>
@@ -135,25 +148,28 @@ export default function Navbar() {
         id="mobile-navigation"
         className={`mobile-nav ${menuOpen ? "mobile-nav-open" : ""}`}
         aria-hidden={!menuOpen}
+        inert={!menuOpen}
       >
         {navLinks.map((link) => (
-          <Link
+          <NavLink
             key={link.path}
             to={link.path}
-            className="mobile-nav-link"
-            tabIndex={menuOpen ? 0 : -1}
+            end={link.path === "/"}
+            className={({ isActive }) =>
+              `mobile-nav-link ${isActive ? "active" : ""}`
+            }
             onClick={closeMenu}
           >
             {link.name}
             <ArrowIcon />
-          </Link>
+          </NavLink>
         ))}
 
         <Link
           to="/appointment"
           className="mobile-nav-cta"
-          tabIndex={menuOpen ? 0 : -1}
           onClick={closeMenu}
+          tabIndex={menuOpen ? 0 : -1}
         >
           Book Appointment
           <ArrowIcon />

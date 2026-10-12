@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import {
   FaInstagram,
@@ -9,6 +10,7 @@ import {
   FiPhone,
   FiMail,
   FiMapPin,
+  FiArrowUp,
 } from "react-icons/fi";
 import "./Footer.css";
 
@@ -16,6 +18,10 @@ const quickLinks = [
   { label: "Home", path: "/" },
   { label: "About Us", path: "/about" },
   { label: "Our Services", path: "/services" },
+  { label: "Conditions We Treat", path: "/conditions" },
+  { label: "Our Team", path: "/team" },
+  { label: "Patient Resources", path: "/resources" },
+  { label: "Blog", path: "/blog" },
   { label: "Contact Us", path: "/contact" },
 ];
 
@@ -26,6 +32,11 @@ const services = [
   "Posture Correction",
 ];
 
+const onlineLinks = [
+  { label: "Online Physiotherapy", path: "/online-physiotherapy" },
+  { label: "Book Appointment", path: "/appointment" },
+];
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -33,16 +44,20 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="footer-top container">
         <div className="footer-top-content">
-          <span className="footer-eyebrow">YOUR WELLNESS MATTERS</span>
+          <span className="footer-eyebrow">
+            YOUR WELLNESS MATTERS
+          </span>
+
           <h2>Ready to move better?</h2>
+
           <p>
             Take the first step towards a healthier and more active life.
-            Our team is here to support your recovery.
+            Our team is here to support your movement and recovery goals.
           </p>
         </div>
 
-        <Link to="/contact" className="footer-top-button">
-          Book Your Visit
+        <Link to="/appointment" className="footer-top-button">
+          Book Your Appointment
           <FiArrowUpRight size={19} />
         </Link>
       </div>
@@ -51,7 +66,11 @@ export default function Footer() {
 
       <div className="footer-main container">
         <div className="footer-brand-column">
-          <Link to="/" className="footer-brand" aria-label="PhysioCare home">
+          <Link
+            to="/"
+            className="footer-brand"
+            aria-label="Rehabics home"
+          >
             <span className="footer-brand-icon">
               <svg
                 width="28"
@@ -69,14 +88,14 @@ export default function Footer() {
             </span>
 
             <span className="footer-brand-copy">
-              <strong>PhysioCare</strong>
+              <strong>Rehabics</strong>
               <small>MOVE BETTER. LIVE BETTER.</small>
             </span>
           </Link>
 
           <p className="footer-description">
-            Personalised physiotherapy focused on helping you regain
-            strength, improve mobility and return to the activities you love.
+            Personalised physiotherapy focused on movement, mobility
+            and helping you work towards your everyday activity goals.
           </p>
 
           <div className="footer-socials">
@@ -114,6 +133,7 @@ export default function Footer() {
 
         <div className="footer-column">
           <h3>Explore</h3>
+
           <ul>
             {quickLinks.map((item) => (
               <li key={item.path}>
@@ -125,6 +145,7 @@ export default function Footer() {
 
         <div className="footer-column">
           <h3>Our Services</h3>
+
           <ul>
             {services.map((service) => (
               <li key={service}>
@@ -132,31 +153,44 @@ export default function Footer() {
               </li>
             ))}
           </ul>
+
+          <div className="footer-online-links">
+            {onlineLinks.map((item) => (
+              <Link key={item.path} to={item.path}>
+                {item.label}
+              </Link>
+            ))}
+          </div>
         </div>
 
         <div className="footer-column footer-contact">
           <h3>Contact Information</h3>
 
-          <a className="footer-contact-item" href="tel:+910000000000">
+          <a
+            className="footer-contact-item"
+            href="tel:+910000000000"
+          >
             <span className="footer-contact-icon">
               <FiPhone />
             </span>
+
             <span>
               <small>Call our team</small>
-              <strong>+91 00000 00000</strong>
+              <strong>Update clinic phone</strong>
             </span>
           </a>
 
           <a
             className="footer-contact-item"
-            href="mailto:hello@physiocare.com"
+            href="mailto:hello@rehabics.com"
           >
             <span className="footer-contact-icon">
               <FiMail />
             </span>
+
             <span>
               <small>Send an email</small>
-              <strong>hello@physiocare.com</strong>
+              <strong>hello@rehabics.com</strong>
             </span>
           </a>
 
@@ -164,9 +198,10 @@ export default function Footer() {
             <span className="footer-contact-icon">
               <FiMapPin />
             </span>
+
             <span>
               <small>Find our clinic</small>
-              <strong>Your City, India</strong>
+              <strong>Update clinic address</strong>
             </span>
           </div>
         </div>
@@ -174,15 +209,25 @@ export default function Footer() {
 
       <div className="footer-bottom">
         <div className="container footer-bottom-inner">
-          <p>© {year} PhysioCare. All rights reserved.</p>
+          <p>© {year} Rehabics. All rights reserved.</p>
 
           <div className="footer-bottom-links">
             <Link to="/privacy">Privacy Policy</Link>
             <Link to="/terms">Terms of Service</Link>
           </div>
 
-          <a className="footer-back-top" href="#root">
-            Back to Top ↑
+          <a
+            className="footer-back-top"
+            href="#root"
+            onClick={(event) => {
+              event.preventDefault();
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              });
+            }}
+          >
+            Back to Top <FiArrowUp />
           </a>
         </div>
       </div>

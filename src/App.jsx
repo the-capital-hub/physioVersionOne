@@ -12,6 +12,10 @@ import About from './pages/About/About'
 import Services from './pages/Services/Services'
 import Contact from './pages/Contact/Contact'
 import Appointment from './pages/Appointment/Appointment'
+import Conditions from './pages/conditions/conditions'
+import Team from './pages/Team/Team'
+import Resources from './pages/Resources/Resources'
+import OnlinePhysiotherapy from './pages/OnlinePhysiotherapy/OnlinePhysiotherapy'
 
 const App = () => {
   return (
@@ -21,6 +25,13 @@ const App = () => {
       <Route path='/' element={<Home/>}/>
       <Route path='/about' element={<About/>}/>
       <Route path='/services' element={<Services/>}/>
+      <Route path='/team' element={<Team/>}/>
+      <Route path="/resources" element={<Resources />} />
+      <Route path="/conditions" element={<Conditions />} />
+      <Route
+  path="/online-physiotherapy"
+  element={<OnlinePhysiotherapy />}
+/>
       <Route path='/contact' element={<Contact/>}/>
       <Route path='/appointment' element={<Appointment/>}/>
 
