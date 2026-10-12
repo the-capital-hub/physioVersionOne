@@ -1,0 +1,314 @@
+
+.section-heading-component {
+  --sh-heading-width: 820px;
+  --sh-description-width: 610px;
+
+  position: relative;
+  width: 100%;
+  max-width: var(--sh-heading-width);
+  margin: 0 auto 24px;
+  isolation: isolate;
+}
+
+.section-heading-component.sh-align-center {
+  text-align: center;
+}
+
+.section-heading-component.sh-align-left {
+  margin-left: 0;
+  margin-right: auto;
+  text-align: left;
+}
+
+.section-heading-component.sh-align-right {
+  margin-left: auto;
+  margin-right: 0;
+  text-align: right;
+}
+
+/* Eyebrow */
+
+.sh-eyebrow-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 13px;
+}
+
+.sh-align-left .sh-eyebrow-row {
+  justify-content: flex-start;
+}
+
+.sh-align-right .sh-eyebrow-row {
+  justify-content: flex-end;
+}
+
+.sh-eyebrow-decoration {
+  width: 42px;
+  height: 3px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: linear-gradient(
+    90deg,
+    #4F83CC 0%,
+    #8CB8F5 65%,
+    #DCE8F8 100%
+  );
+}
+
+.sh-eyebrow {
+  color: var(--accent);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* Heading typography */
+
+.sh-title {
+  max-width: 100%;
+  margin: 0;
+  color: var(--primary);
+  font-family: var(--font-heading);
+  font-size: clamp(30px, 3.5vw, 44px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -1.2px;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+
+.sh-align-center .sh-title {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sh-align-right .sh-title {
+  margin-left: auto;
+}
+
+.sh-highlight {
+  color: var(--accent);
+}
+
+/* Understated brand accent */
+
+.sh-accent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: fit-content;
+  margin: 14px auto 0;
+}
+
+.sh-align-left .sh-accent {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.sh-align-right .sh-accent {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.sh-accent span {
+  display: block;
+  height: 3px;
+  border-radius: 10px;
+  background: var(--accent);
+}
+
+.sh-accent span:first-child {
+  width: 28px;
+}
+
+.sh-accent span:last-child {
+  width: 8px;
+  opacity: 0.4;
+}
+
+/* Description */
+
+.sh-description {
+  max-width: var(--sh-description-width);
+  margin: 13px auto 0;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+  text-wrap: pretty;
+}
+
+.sh-align-left .sh-description {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.sh-align-right .sh-description {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* Size options */
+
+.sh-size-compact {
+  --sh-heading-width: 700px;
+  --sh-description-width: 520px;
+}
+
+.sh-size-compact .sh-title {
+  font-size: clamp(25px, 3vw, 34px);
+  letter-spacing: -0.7px;
+}
+
+.sh-size-large {
+  --sh-heading-width: 920px;
+  --sh-description-width: 660px;
+}
+
+.sh-size-large .sh-title {
+  font-size: clamp(34px, 4.3vw, 52px);
+  letter-spacing: -1.5px;
+}
+
+/* Minimal variant */
+
+.sh-variant-minimal .sh-eyebrow-decoration {
+  display: none;
+}
+
+.sh-variant-minimal .sh-eyebrow-row {
+  margin-bottom: 10px;
+}
+
+.sh-variant-minimal .sh-title {
+  font-size: clamp(26px, 3.2vw, 38px);
+  letter-spacing: -0.8px;
+}
+
+.sh-variant-minimal .sh-description {
+  margin-top: 12px;
+}
+
+/* Hero integration */
+
+.hero-heading {
+  max-width: 100%;
+  margin: 0;
+}
+
+.hero-heading .sh-eyebrow-row {
+  justify-content: flex-start;
+  margin-bottom: 18px;
+}
+
+.hero-heading .sh-title {
+  max-width: 620px;
+  font-size: clamp(36px, 4.4vw, 58px);
+  line-height: 1.12;
+  letter-spacing: -1.8px;
+}
+
+.hero-heading .sh-highlight {
+  display: block;
+}
+
+.hero-heading .sh-accent {
+  display: none;
+}
+
+.hero-heading .sh-description {
+  max-width: 490px;
+  margin: 18px 0 0;
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.hero-heading.sh-size-large .sh-title {
+  font-size: clamp(36px, 4.4vw, 58px);
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .section-heading-component {
+    margin-bottom: 20px;
+  }
+
+  .sh-eyebrow-row {
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .sh-eyebrow {
+    letter-spacing: 1px;
+  }
+
+  .sh-eyebrow-decoration {
+    width: 18px;
+  }
+
+  .sh-title {
+    font-size: clamp(27px, 5.5vw, 36px);
+    letter-spacing: -0.6px;
+  }
+
+  .sh-size-large .sh-title {
+    font-size: clamp(30px, 6vw, 42px);
+  }
+
+  .sh-description {
+    margin-top: 10px;
+    font-size: 13px;
+    line-height: 1.75;
+  }
+
+  .hero-heading .sh-eyebrow-row {
+    margin-bottom: 14px;
+  }
+
+  .hero-heading .sh-title,
+  .hero-heading.sh-size-large .sh-title {
+    font-size: clamp(34px, 7vw, 46px);
+    letter-spacing: -0.8px;
+  }
+
+  .hero-heading .sh-description {
+    margin-top: 13px;
+    font-size: 14px;
+    line-height: 1.75;
+  }
+}
+
+@media (max-width: 480px) {
+  .sh-title {
+    font-size: 27px;
+    line-height: 1.25;
+  }
+
+  .sh-size-large .sh-title {
+    font-size: 32px;
+  }
+
+  .sh-description {
+    font-size: 13px;
+  }
+
+  .hero-heading .sh-title,
+  .hero-heading.sh-size-large .sh-title {
+    font-size: 34px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-heading-component {
+    animation: none;
+    transition: none;
+  }
+}
