@@ -19,7 +19,10 @@ import Appointment from "./pages/Appointment/Appointment";
 import Team from "./pages/Team/Team";
 import Resources from "./pages/Resources/Resources";
 import OnlinePhysiotherapy from "./pages/OnlinePhysiotherapy/OnlinePhysiotherapy";
-import Conditions from "./pages/conditions/conditions";
+
+
+
+
 
 // Public Website Layout
 const PublicLayout = ({ children }) => {
@@ -83,14 +86,7 @@ const App = () => {
         }
       />
 
-      <Route
-        path="/conditions"
-        element={
-          <PublicLayout>
-            <Conditions/>
-          </PublicLayout>
-        }
-      />
+      
 
       <Route
         path="/online-physiotherapy"
