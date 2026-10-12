@@ -15,10 +15,11 @@ import About from "./pages/About/About";
 import Services from "./pages/Services/Services";
 import Contact from "./pages/Contact/Contact";
 import Appointment from "./pages/Appointment/Appointment";
-import Conditions from "./pages/conditions/conditions";
+
 import Team from "./pages/Team/Team";
 import Resources from "./pages/Resources/Resources";
 import OnlinePhysiotherapy from "./pages/OnlinePhysiotherapy/OnlinePhysiotherapy";
+import Conditions from "./pages/conditions/conditions";
 
 // Public Website Layout
 const PublicLayout = ({ children }) => {
@@ -86,7 +87,7 @@ const App = () => {
         path="/conditions"
         element={
           <PublicLayout>
-            <Conditions />
+            <Conditions/>
           </PublicLayout>
         }
       />
