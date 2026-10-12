@@ -1,15 +1,15 @@
 
 import React from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
-// Public Layout Components
+// Layout Components
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import AIFloatingButton from "./components/AIFloatingButton/AIFloatingButton";
 import WhatsAppButton from "./components/WhatsAppButton/WhatsAppButton";
 
-// Public Pages
+// Pages
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Services from "./pages/Services/Services";
@@ -19,10 +19,6 @@ import Conditions from "./pages/conditions/conditions";
 import Team from "./pages/Team/Team";
 import Resources from "./pages/Resources/Resources";
 import OnlinePhysiotherapy from "./pages/OnlinePhysiotherapy/OnlinePhysiotherapy";
-
-// Admin Pages
-import AdminLogin from "./admin/pages/AdminLogin";
-import AdminDashboard from "./admin/pages/AdminDashboard";
 
 // Public Website Layout
 const PublicLayout = ({ children }) => {
@@ -38,23 +34,9 @@ const PublicLayout = ({ children }) => {
   );
 };
 
-// Admin Layout
-const AdminLayout = ({ children }) => {
-  return (
-    <>
-      <ScrollToTop />
-      {children}
-    </>
-  );
-};
-
 const App = () => {
-  const location = useLocation();
-  const isAdminRoute = location.pathname.startsWith("/admin");
-
   return (
     <Routes>
-      {/* Public Website */}
       <Route
         path="/"
         element={
@@ -136,26 +118,6 @@ const App = () => {
         }
       />
 
-      {/* Admin Panel */}
-      <Route
-        path="/admin/login"
-        element={
-          <AdminLayout>
-            <AdminLogin />
-          </AdminLayout>
-        }
-      />
-
-      <Route
-        path="/admin/dashboard"
-        element={
-          <AdminLayout>
-            <AdminDashboard />
-          </AdminLayout>
-        }
-      />
-
-      {/* Not Found */}
       <Route
         path="*"
         element={
