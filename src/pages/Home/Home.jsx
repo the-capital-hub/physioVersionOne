@@ -7,7 +7,14 @@ import HeroSection from "../../components/HeroSection/HeroSection";
 import SectionHeading from "../../components/SectionHeading/SectionHeading";
 import CTASection from "../../components/CTASection/CTASection";
 import "./Home.css";
-
+import image2 from '../../assets/home/image2.png'
+import daily from '../../assets/home/daily.jpeg'
+import poscer from '../../assets/home/poscer.jpeg'
+import recovery from '../../assets/home/recovery.jpeg'
+import services1 from '../../assets/home/services1.png'
+import services2 from '../../assets/home/services2.png'
+import services3 from '../../assets/home/services3.png'
+import services4 from '../../assets/home/services4.png'
 const services = [
   {
     number: "01",
@@ -15,7 +22,7 @@ const services = [
     description:
       "Build comfort and confidence with care focused on movement, posture, and the activities that matter to you.",
     image:
-      "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=900&q=85",
+      services1,
     alt: "Guided movement session in a physiotherapy setting",
   },
   {
@@ -24,7 +31,7 @@ const services = [
     description:
       "Work towards restoring strength, balance, and movement after a sports related injury.",
     image:
-      "https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=900&q=85",
+      services3,
     alt: "Athlete training to improve strength and movement",
   },
   {
@@ -32,8 +39,7 @@ const services = [
     title: "Joint and Mobility Care",
     description:
       "Improve flexibility and everyday function with suitable mobility exercises and guided support.",
-    image:
-      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=900&q=85",
+    image:services2,
     alt: "Physiotherapist guiding an exercise session",
   },
   {
@@ -42,7 +48,7 @@ const services = [
     description:
       "Follow a considered care plan that supports gradual progress after an injury or procedure.",
     image:
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=900&q=85",
+      services4,
     alt: "Healthcare professional supporting a patient",
   },
 ];
@@ -147,7 +153,7 @@ const tips = [
     description:
       "If you sit for long periods, change position and take comfortable movement breaks throughout the day.",
     image:
-      "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=85",
+      daily,
     alt: "Person practising a gentle movement routine",
   },
   {
@@ -156,7 +162,7 @@ const tips = [
     description:
       "Adjust your screen, chair, and working position to support comfort. Change positions rather than trying to stay perfectly still.",
     image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=85",
+      poscer,
     alt: "Comfortable desk setup",
   },
   {
@@ -165,7 +171,7 @@ const tips = [
     description:
       "Follow the advice given for your condition and increase activity at a pace that feels appropriate for your recovery.",
     image:
-      "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=85",
+      recovery,
     alt: "Person doing a controlled exercise",
   },
 ];
@@ -402,7 +408,7 @@ export default function Home() {
             transition={{ duration: 0.65 }}
           >
             <img
-              src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1100&q=85"
+              src={image2}
               alt="Healthcare professional discussing patient care"
               loading="lazy"
             />

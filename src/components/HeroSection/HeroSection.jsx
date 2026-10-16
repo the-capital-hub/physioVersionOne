@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import SectionHeading from "../SectionHeading/SectionHeading";
 import "./HeroSection.css";
-
+import image1 from '../../assets/home/image1.jpeg'
 const defaultStats = [
   {
     icon: "movement",
@@ -82,7 +82,7 @@ export default function HeroSection({
   secondaryText = "Explore Our Services",
   secondaryLink = "/services",
   image =
-    "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1500&q=90",
+    image1,
   imageAlt = "Healthcare professional providing patient care",
   imageLabel = "Care designed around you",
   imageDescription = "A more personal approach to recovery",

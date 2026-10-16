@@ -21,7 +21,14 @@ import {
 import HeroSection from "../../components/HeroSection/HeroSection";
 import SectionHeading from "../../components/SectionHeading/SectionHeading";
 import CTASection from "../../components/CTASection/CTASection";
-
+import services1 from '../../assets/home/services1.png'
+import services2 from '../../assets/home/services2.png'
+import services3 from '../../assets/home/services3.png'
+import services4 from '../../assets/home/services4.png'
+import services5 from '../../assets/home/services5.jpeg'
+import services6 from '../../assets/home/services6.jpeg'
+import image1 from '../../assets/services/image1.jpeg'
+import image2 from '../../assets/services/image2.jpeg'
 import "./Services.css";
 
 const services = [
@@ -38,7 +45,7 @@ const services = [
       "Learn better movement habits",
     ],
     image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=85",
+      services1,
     alt: "Physiotherapist guiding a patient through treatment",
   },
   {
@@ -54,7 +61,7 @@ const services = [
       "Build confidence during recovery",
     ],
     image:
-      "https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=1000&q=85",
+      services2,
     alt: "Athlete performing a fitness exercise",
   },
   {
@@ -70,7 +77,7 @@ const services = [
       "Support comfortable movement",
     ],
     image:
-      "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1000&q=85",
+      services3,
     alt: "Person performing a guided mobility exercise",
   },
   {
@@ -86,7 +93,7 @@ const services = [
       "Work towards daily activities",
     ],
     image:
-      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1000&q=85",
+      services4,
     alt: "Patient working on a supervised rehabilitation exercise",
   },
   {
@@ -102,7 +109,7 @@ const services = [
       "Support independent movement",
     ],
     image:
-      "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1000&q=85",
+      services5,
     alt: "Person practising a gentle guided movement exercise",
   },
   {
@@ -118,7 +125,7 @@ const services = [
       "Build a personalised exercise routine",
     ],
     image:
-      "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=1000&q=85",
+      services6,
     alt: "Healthcare professional assisting with a recovery session",
   },
 ];
@@ -313,7 +320,7 @@ function Services() {
         primaryLink="/appointment"
         secondaryText="Explore Our Services"
         secondaryLink="#all-services"
-        image="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=85"
+        image={image2}
         imageAlt="Physiotherapist supporting a patient during rehabilitation"
         imageLabel="PERSONALISED PHYSIOTHERAPY"
         imageDescription="Professional guidance shaped around your recovery goals"
@@ -445,7 +452,7 @@ function Services() {
             transition={{ duration: 0.6 }}
           >
             <img
-              src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1100&q=85"
+              src={image1}
               alt="Guided movement practice in a physiotherapy setting"
               loading="lazy"
             />

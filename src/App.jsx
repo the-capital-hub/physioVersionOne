@@ -19,6 +19,7 @@ import Appointment from "./pages/Appointment/Appointment";
 import Team from "./pages/Team/Team";
 import Resources from "./pages/Resources/Resources";
 import OnlinePhysiotherapy from "./pages/OnlinePhysiotherapy/OnlinePhysiotherapy";
+import PatientPanel from "./pages/PatientPanel/PatientPanel";
 
 
 
@@ -41,6 +42,7 @@ const PublicLayout = ({ children }) => {
 const App = () => {
   return (
     <Routes>
+      <Route path="/patient/*" element={<PatientPanel />} />
       <Route
         path="/"
         element={
@@ -67,6 +69,7 @@ const App = () => {
           </PublicLayout>
         }
       />
+      
 
       <Route
         path="/team"
