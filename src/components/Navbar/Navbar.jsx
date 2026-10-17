@@ -5,7 +5,7 @@ import "./Navbar.css";
 const navLinks = [
   { name: "Home", path: "/" },
   { name: "Services", path: "/services" },
-  { name: "Conditions", path: "/conditions" },
+
   { name: "Online Physio", path: "/online-physiotherapy" },
   { name: "About Us", path: "/about" },
   { name: "Our Team", path: "/team" },

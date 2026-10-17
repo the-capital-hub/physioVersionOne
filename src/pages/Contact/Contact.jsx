@@ -20,7 +20,7 @@ import HeroSection from "../../components/HeroSection/HeroSection";
 import SectionHeading from "../../components/SectionHeading/SectionHeading";
 import CTASection from "../../components/CTASection/CTASection";
 import "./Contact.css";
-
+import contact from '../../assets/contact.png'
 const contactDetails = [
   {
     icon: Phone,
@@ -133,7 +133,7 @@ function Contact() {
         primaryLink="/appointment"
         secondaryText="Explore Services"
         secondaryLink="/services"
-        image="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=85"
+        image={contact}
         imageAlt="Healthcare professional discussing care with a patient"
         imageLabel="Personalised Care"
         imageDescription="Your questions matter. Let us help you find the right next step."

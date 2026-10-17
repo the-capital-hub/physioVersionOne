@@ -22,7 +22,17 @@ import {
 import HeroSection from "../../components/HeroSection/HeroSection";
 import SectionHeading from "../../components/SectionHeading/SectionHeading";
 import CTASection from "../../components/CTASection/CTASection";
-
+import image1 from '../../assets/blog/image1.png'
+import image2 from '../../assets/blog/image2.jpeg'
+import image3 from '../../assets/blog/image3.jpeg'
+import image4 from '../../assets/blog/image4.jpeg'
+import image5 from '../../assets/blog/image5.jpeg'
+import image6 from '../../assets/blog/image6.jpeg'
+import image7 from '../../assets/blog/image7.jpeg'
+import image8 from '../../assets/blog/image8.jpeg'
+import image9 from '../../assets/blog/image9.jpeg'
+import image10 from '../../assets/blog/image10.jpeg'
+import image11 from '../../assets/blog/image11.jpeg'
 import "./Blog.css";
 
 const articles = [
@@ -36,7 +46,7 @@ const articles = [
     readTime: "6 min read",
     author: "Rehabics Care Team",
     image:
-      "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=900&q=85",
+      image2,
     featured: true,
     content: [
       {
@@ -63,7 +73,7 @@ const articles = [
     readTime: "5 min read",
     author: "Rehabics Care Team",
     image:
-      "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=900&q=85",
+      image3,
     featured: false,
     content: [
       {
@@ -90,7 +100,7 @@ const articles = [
     readTime: "7 min read",
     author: "Rehabics Care Team",
     image:
-      "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=85",
+      image4,
     featured: false,
     content: [
       {
@@ -117,7 +127,7 @@ const articles = [
     readTime: "6 min read",
     author: "Rehabics Care Team",
     image:
-      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=900&q=85",
+      image5,
     featured: false,
     content: [
       {
@@ -144,7 +154,7 @@ const articles = [
     readTime: "5 min read",
     author: "Rehabics Care Team",
     image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=85",
+      image6,
     featured: false,
     content: [
       {
@@ -171,7 +181,7 @@ const articles = [
     readTime: "6 min read",
     author: "Rehabics Care Team",
     image:
-      "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=900&q=85",
+      image7,
     featured: false,
     content: [
       {
@@ -198,7 +208,7 @@ const articles = [
     readTime: "4 min read",
     author: "Rehabics Care Team",
     image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=85",
+      image8,
     featured: false,
     content: [
       {
@@ -225,7 +235,7 @@ const articles = [
     readTime: "4 min read",
     author: "Rehabics Care Team",
     image:
-      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=85",
+      image9,
     featured: false,
     content: [
       {
@@ -252,7 +262,7 @@ const articles = [
     readTime: "5 min read",
     author: "Rehabics Care Team",
     image:
-      "https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=900&q=85",
+      image10,
     featured: false,
     content: [
       {
@@ -369,7 +379,7 @@ function Blog() {
         primaryLink="#blog-library"
         secondaryText="Book an Appointment"
         secondaryLink="/appointment"
-        image="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1200&q=85"
+        image={image1}
         imageAlt="Physiotherapy professional helping a patient with movement"
         imageLabel="Learn. Move. Recover."
         imageDescription="Helpful information to support informed conversations about your health."

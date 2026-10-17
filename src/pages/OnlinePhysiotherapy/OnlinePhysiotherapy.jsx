@@ -24,6 +24,8 @@ import {
 
 import HeroSection from "../../components/HeroSection/HeroSection";
 import SectionHeading from "../../components/SectionHeading/SectionHeading";
+import image1 from '../../assets/online/image1.png'
+import image2 from '../../assets/online/image2.jpeg'
 import CTASection from "../../components/CTASection/CTASection";
 
 import "./OnlinePhysiotherapy.css";
@@ -179,7 +181,7 @@ function OnlinePhysiotherapy() {
         primaryLink="/appointment"
         secondaryText="Explore Our Services"
         secondaryLink="/services"
-        image="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=85"
+        image={image1}
         imageAlt="Healthcare professional discussing care with a patient"
         imageLabel="Personalised care, made accessible"
         imageDescription="Connect with a physiotherapist from your own space."
@@ -250,7 +252,7 @@ function OnlinePhysiotherapy() {
             transition={{ duration: 0.5 }}
           >
             <img
-              src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1100&q=85"
+              src={image2}
               alt="Healthcare professional preparing for a consultation"
               loading="lazy"
             />

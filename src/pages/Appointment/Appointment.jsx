@@ -17,7 +17,7 @@ import {
   ClipboardCheck,
   RotateCcw,
 } from "lucide-react";
-
+import app from '../../assets/app.png'
 import HeroSection from "../../components/HeroSection/HeroSection";
 import SectionHeading from "../../components/SectionHeading/SectionHeading";
 import CTASection from "../../components/CTASection/CTASection";
@@ -176,7 +176,7 @@ function Appointment() {
         primaryLink="#booking-form"
         secondaryText="Explore Services"
         secondaryLink="/services"
-        image="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=85"
+        image={app}
         imageAlt="Physiotherapy professional supporting a patient during care"
         imageLabel="Care That Starts With You"
         imageDescription="A thoughtful approach to your movement and recovery goals."

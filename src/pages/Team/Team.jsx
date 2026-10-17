@@ -19,7 +19,10 @@ import {
 import HeroSection from "../../components/HeroSection/HeroSection";
 import SectionHeading from "../../components/SectionHeading/SectionHeading";
 import CTASection from "../../components/CTASection/CTASection";
-
+import image1 from '../../assets/team/image1.png'
+import image2 from '../../assets/team/image2.jpeg'
+import image3 from '../../assets/team/image3.jpeg'
+import image4 from '../../assets/team/image4.jpeg'
 import "./Team.css";
 
 const teamMembers = [
@@ -31,7 +34,7 @@ const teamMembers = [
     experience: "8 years of experience",
     specialty: "Orthopedic Care",
     image:
-      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=85",
+      image2,
     bio: "Focuses on movement assessment, joint mobility and personalized rehabilitation planning.",
     interests: ["Joint mobility", "Pain management", "Rehabilitation"],
   },
@@ -55,7 +58,7 @@ const teamMembers = [
     experience: "7 years of experience",
     specialty: "Neurological Care",
     image:
-      "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=800&q=85",
+      image3,
     bio: "Works with individualized rehabilitation goals involving balance, coordination and daily function.",
     interests: ["Balance training", "Coordination", "Mobility"],
   },
@@ -67,7 +70,7 @@ const teamMembers = [
     experience: "5 years of experience",
     specialty: "Recovery and Mobility",
     image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=85",
+      image4,
     bio: "Helps patients work towards improved movement, flexibility and confidence in daily activities.",
     interests: ["Functional movement", "Flexibility", "Recovery"],
   },
@@ -140,7 +143,7 @@ function Team() {
         primaryLink="/appointment"
         secondaryText="Explore Our Services"
         secondaryLink="/services"
-        image="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=90"
+        image={image1}
         imageAlt="Healthcare professionals in a clinical setting"
         imageLabel="Care begins with listening"
         imageDescription="A supportive approach built around your needs"

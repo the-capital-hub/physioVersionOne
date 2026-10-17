@@ -20,6 +20,7 @@ import Team from "./pages/Team/Team";
 import Resources from "./pages/Resources/Resources";
 import OnlinePhysiotherapy from "./pages/OnlinePhysiotherapy/OnlinePhysiotherapy";
 import PatientPanel from "./pages/PatientPanel/PatientPanel";
+import Blog from "./pages/Blog/Blog";
 
 
 
@@ -88,6 +89,15 @@ const App = () => {
           </PublicLayout>
         }
       />
+      <Route
+        path="/blog"
+        element={
+          <PublicLayout>
+            <Blog />
+          </PublicLayout>
+        }
+      />
+
 
       
 

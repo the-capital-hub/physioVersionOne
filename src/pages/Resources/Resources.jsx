@@ -21,7 +21,8 @@ import {
 import HeroSection from "../../components/HeroSection/HeroSection";
 import SectionHeading from "../../components/SectionHeading/SectionHeading";
 import CTASection from "../../components/CTASection/CTASection";
-
+import image1 from '../../assets/resources/image.png'
+import image2 from '../../assets/resources/image2.jpeg'
 import "./Resources.css";
 
 const resources = [
@@ -252,7 +253,7 @@ function Resources() {
         primaryLink="#resource-library"
         secondaryText="Book an Appointment"
         secondaryLink="/appointment"
-        image="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1200&q=85"
+        image={image1}
         imageAlt="Physiotherapy and movement training"
         imageLabel="Learn. Move. Recover."
         imageDescription="Reliable guidance for your movement and recovery journey."
@@ -338,7 +339,7 @@ function Resources() {
             <div className="featured-visual">
               <div className="featured-image-wrap">
                 <img
-                  src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1000&q=85"
+                  src={image2}
                   alt="Person practising a gentle stretching exercise"
                   loading="lazy"
                 />

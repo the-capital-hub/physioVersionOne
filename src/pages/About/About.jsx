@@ -22,7 +22,9 @@ import {
 import HeroSection from "../../components/HeroSection/HeroSection";
 import SectionHeading from "../../components/SectionHeading/SectionHeading";
 import CTASection from "../../components/CTASection/CTASection";
-
+import image1 from '../../assets/about/image1.png'
+import image2 from '../../assets/about/image2.jpeg'
+import image3 from '../../assets/about/image3.jpeg'
 import "./About.css";
 
 const values = [
@@ -147,7 +149,7 @@ function About() {
         primaryLink="/appointment"
         secondaryText="Explore Our Services"
         secondaryLink="/services"
-        image="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=85"
+        image={image1}
         imageAlt="Healthcare professional supporting a patient"
         imageLabel="CARE THAT STARTS WITH YOU"
         imageDescription="Your goals are an important part of your care journey"
@@ -215,7 +217,7 @@ function About() {
             transition={{ duration: 0.65 }}
           >
             <img
-              src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=1000&q=85"
+              src={image2}
               alt="Healthcare professional discussing rehabilitation"
               loading="lazy"
             />
@@ -357,7 +359,7 @@ function About() {
             transition={{ duration: 0.6 }}
           >
             <img
-              src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1100&q=85"
+              src={image3}
               alt="Guided movement and flexibility practice"
               loading="lazy"
             />
